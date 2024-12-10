@@ -1,5 +1,5 @@
 const express = require("express");
-const { Patient } = require("../db/db");
+const { Patient, Doctor, Interaction } = require("../db/db");
 const bcrypt = require("bcryptjs");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
@@ -41,9 +41,10 @@ router.post("/login", async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-    const token = jwt.sign({ id: patient._id }, JWT_SECRET);
+    const token = jwt.sign({ id: patient._id }, process.env.JWT_SECRET);
     res.json({ token, email });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error logging in", error });
   }
 });
@@ -54,6 +55,46 @@ router.get("/profile", middle, async (req, res) => {
     res.json(patient);
   } catch (error) {
     res.status(500).json({ message: "Error fetching profile", error });
+  }
+});
+
+router.get("/doctordetails", async (req, res) => {
+  const doctors = await Doctor.find();
+  res.json(doctors);
+});
+
+router.get("/doctor/:id", async (req, res) => {
+  try {
+    const doctor = await Doctor.findById(req.params.id);
+    if (!doctor) {
+      return res.status(400).json({ error: "Doctor Not found" });
+    }
+    res.json(doctor);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.get("/interactions", middle, async (req, res) => {
+  try {
+    const conv = await Interaction.find({ patientId: req.user.id }).populate(
+      "doctorId"
+    );
+    res.json(conv);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.get("/interactions/:doctorId", middle, async (req, res) => {
+  try {
+    const con = await Interaction.find({
+      patientId: req.user.id,
+      doctorId: req.params.doctorId,
+    });
+    res.json(con);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
