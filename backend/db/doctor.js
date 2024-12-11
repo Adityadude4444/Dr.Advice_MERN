@@ -12,28 +12,28 @@ mongoose
 
     const doctors = [
       {
-        name: "Dr. John",
-        specialization: "Skin",
+        name: "Dr. Roman",
+        specialization: "Psychiatry",
         image:
-          "https://img.freepik.com/premium-photo/portrait-smiling-doctor-with-stethoscope-corridor-hospital_948103-151.jpg?size=626&ext=jpg&ga=GA1.1.493883763.1720994992&semt=sph",
+          "https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg",
       },
       {
-        name: "Dr. Jane",
-        specialization: "Hair",
+        name: "Dr. Shreya",
+        specialization: "Gynecology",
         image:
-          "https://img.freepik.com/free-photo/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.jpg?size=626&ext=jpg&ga=GA1.1.493883763.1720994992&semt=sph",
+          "https://t4.ftcdn.net/jpg/03/20/74/45/360_F_320744517_TaGkT7aRlqqWdfGUuzRKDABtFEoN5CiO.jpg",
       },
       {
-        name: "Dr. Smith",
-        specialization: "Dental",
+        name: "Dr. William",
+        specialization: "Urology",
         image:
-          "https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?size=626&ext=jpg&ga=GA1.1.493883763.1720994992&semt=sph",
+          "https://st4.depositphotos.com/13193658/41424/i/450/depositphotos_414248418-stock-photo-positive-ophthalmologist-hand-pocket-wearing.jpg",
       },
       {
-        name: "Dr. Miller",
-        specialization: "Cardiology",
+        name: "Dr. Jack",
+        specialization: "Gastroenterology",
         image:
-          "https://png.pngtree.com/png-clipart/20231002/original/pngtree-young-afro-professional-doctor-png-image_13227671.png",
+          "https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg?semt=ais_hybrid",
       },
     ];
 
