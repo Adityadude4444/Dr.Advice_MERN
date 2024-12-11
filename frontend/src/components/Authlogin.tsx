@@ -46,12 +46,12 @@ const Authlogin = () => {
         <h3>
           Don't Have account{" "}
           <span
-            className="underline"
+            className="underline cursor-pointer"
             onClick={() => {
               navigator("/signup");
             }}
           >
-            Login
+            Sign Up
           </span>
         </h3>
       </div>
@@ -65,6 +65,7 @@ const Authlogin = () => {
             );
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("email", res.data.email);
+            navigator("/home");
           } catch (error: any) {
             console.log("Error while logging in: ", error);
           }

@@ -45,16 +45,19 @@ const Auth = () => {
         }
         placeholder="johndoe@example.com"
       />
-      <Labelbox
-        label="Password"
-        onchange={(e) =>
-          setpostips({
-            ...postips,
-            password: (e.target as HTMLInputElement).value,
-          })
-        }
-        placeholder="********"
-      />
+      <div className="w-full max-w-sm min-w-[200px]">
+        <label className="block mb-2 text-sm text-slate-600">Password</label>
+        <input
+          className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+          type="password"
+          onChange={(e) =>
+            setpostips({
+              ...postips,
+              password: (e.target as HTMLInputElement).value,
+            })
+          }
+        />
+      </div>
       <Labelbox
         label="Age"
         onchange={(e) =>
@@ -108,7 +111,7 @@ const Auth = () => {
         <h3>
           Already Have account{" "}
           <span
-            className="underline"
+            className="underline cursor-pointer"
             onClick={() => {
               navigator("/signin");
             }}
@@ -127,6 +130,7 @@ const Auth = () => {
             );
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("email", res.data.email);
+            navigator("/home");
           } catch (error: any) {
             console.log("Error while logging in: ", error);
           }
