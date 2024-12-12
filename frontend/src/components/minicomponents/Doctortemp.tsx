@@ -8,7 +8,7 @@ interface DoctorProps {
 const Doctortemp = ({ name, specialization, image, onclick }: DoctorProps) => {
   return (
     <div
-      className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+      className="flex flex-col items-center p-4 cursor-pointer bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
       onClick={onclick}
     >
       <div className="w-24 h-24 overflow-hidden rounded-full mb-4">

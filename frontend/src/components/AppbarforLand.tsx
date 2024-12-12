@@ -1,11 +1,15 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const AppbarforLand = () => {
   const navigator = useNavigate();
   return (
     <div className="flex justify-between items-center mt-3">
-      <div className="font-bold text-4xl text-[#0070f3] pl-4 pb-3">
+      <div
+        className="font-bold text-4xl text-[#0070f3] pl-4 pb-3 cursor-pointer"
+        onClick={() => {
+          navigator("/");
+        }}
+      >
         DR. ADVICE
       </div>
       <div className="p-4 mr-2">
